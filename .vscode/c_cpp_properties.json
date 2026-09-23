@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "STM32F103",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/User",
+                "${workspaceFolder}/Library",
+                "${workspaceFolder}/System"
+            ],
+            "defines": [
+                "USE_STDPERIPH_DRIVER",
+                "STM32F10X_MD"
+            ],
+            "compilerPath": "D:/msys64/mingw64/bin/gcc.exe",
+            "cStandard": "c99",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
