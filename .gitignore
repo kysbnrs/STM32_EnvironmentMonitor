@@ -1,0 +1,26 @@
+﻿# Keil编译输出
+Objects/
+Listings/
+DebugConfig/
+
+# Keil用户配置
+*.uvguix.*
+*.uvoptx
+*.bak
+*.dep
+
+# 其他
+*.o
+*.crf
+*.d
+*.iex
+*.htm
+*.lnp
+*.map
+*.lst
+*.m51
+*.plg
+*.scr
+*.sym
+*.tra
+*.txt
