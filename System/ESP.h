@@ -4,6 +4,7 @@
 #include "stm32f10x.h"
 
 void USART3_Init(void);
+void ESP_RxITEnable(void);   /* Wifi任务启动后开启接收中断 */
 void UART3_SendString(char *str);
 uint8_t ESP_SendCmd(char *cmd, char *expect, uint32_t timeout_ms);
 void ESP_ConnectStateMachine(void);

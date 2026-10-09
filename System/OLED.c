@@ -51,8 +51,8 @@ void OLED_Clear(void)
 void OLED_Init(void)
 {
     I2C_GPIO_Init();
-    Delay_ms(100);               // 上电等100ms让OLED稳定
-    
+    Delay_ms_busy(100);       // 上电等100ms让OLED稳定（用忙等，不依赖SysTick）
+
     OLED_WriteCmd(0xAE);        // 关显示
     OLED_WriteCmd(0xD5);        // 设置时钟分频比/振荡器频率
     OLED_WriteCmd(0x80);        // 默认值
@@ -78,7 +78,7 @@ void OLED_Init(void)
     OLED_WriteCmd(0xA4);        // 全局显示开启（输出跟随RAM内容）
     OLED_WriteCmd(0xA6);        // 正常显示（非反色）
     OLED_WriteCmd(0xAF);        // 开显示！
-    
+
     OLED_Clear();               // 清屏
 }
 

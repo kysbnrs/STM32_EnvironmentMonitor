@@ -5,6 +5,7 @@
 
 void Delay_us(uint32_t us);
 void Delay_ms(uint32_t ms);
+void Delay_ms_busy(uint32_t ms);
 void Delay_s(uint32_t s);
 uint32_t GetTick_ms(void);  
 

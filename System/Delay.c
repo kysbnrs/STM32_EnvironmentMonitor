@@ -4,10 +4,10 @@
 volatile uint32_t g_tick = 0;  // 全局毫秒计数器
 
 // SysTick中断服务函数，每1ms触发一次
-void SysTick_Handler(void)
-{
-    g_tick++;
-}
+//void SysTick_Handler(void)
+//{
+//    g_tick++;
+//}
 
 // 获取当前毫秒数
 uint32_t GetTick_ms(void)
@@ -41,10 +41,25 @@ void Delay_ms(uint32_t xms)
     while(g_tick - start < xms);
 }
 
+// 忙等毫秒延时（不依赖SysTick中断，用于FreeRTOS启动前的初始化）
+void Delay_ms_busy(uint32_t xms)
+{
+    while(xms--)
+    {
+        for(volatile uint32_t i = 0; i < 7200; i++);
+    }
+}
+
 void Delay_s(uint32_t xs)
 {
     while(xs--)
     {
         Delay_ms(1000);
     }
+}
+
+// FreeRTOS Tick Hook：每个系统节拍调用一次，让g_tick在FreeRTOS启动后也能走
+void vApplicationTickHook(void)
+{
+    g_tick++;
 }
